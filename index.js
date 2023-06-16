@@ -5,19 +5,22 @@ const darmModeSwitch = () => {
 };
 
 let postData;
-
+let loadedCards = 0;
+const cardsPerLoad = 4;
 fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
     postData = data;
-    generatePostsHTML();
+    renderCards(0, cardsPerLoad)
   })
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
 
-  function generatePostsHTML() {
-    postData.forEach(post => {
+  function renderCards(startIndex, endIndex) {
+     for (let i = startIndex; i < endIndex; i++) {
+        const post = postData[i];
+    
       const postElement = document.createElement('div');
       postElement.className = 'post';
   
@@ -31,13 +34,12 @@ fetch("./data.json")
         </div>
         <img class="post-image" src="${post.image}" alt="Post Image">
         <div class="post-caption">
-          <p>${post.caption}</p>
+          <p class="line-clamp">${post.caption}</p>
         </div>
       `;
   
       postElement.innerHTML = postHTML;
       feedContainer.appendChild(postElement);
-    });
+    };
   }
-
 darkModeToggle.addEventListener("click", darmModeSwitch);
