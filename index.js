@@ -8,6 +8,7 @@ const darmModeSwitch = () => {
 let postData;
 let loadedCards = 4;
 const cardsPerLoad = 4;
+
 fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
@@ -17,6 +18,20 @@ fetch("./data.json")
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
+
+//   function fetchData(page) {
+//     fetch(`https://your-api-endpoint?page=${page}&pageSize=${pageSize}`)
+//       .then(response => response.json())
+//       .then(data => {
+//         postData ={...postdata, data};
+//     
+//         console.log(data);
+//       })
+//       .catch(error => {
+//         console.error(error);
+//       });
+//   }
+// this is a fetch with pagination if the data was bigger this would be used for optimization
 
 function renderCards(startIndex, endIndex) {
   for (let i = startIndex; i < endIndex; i++) {
