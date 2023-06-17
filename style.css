@@ -212,15 +212,25 @@ input:checked + .slider:before {
   width: 100%;
   height: 350px;
   object-fit: cover;
+  cursor: pointer;
+}
+.post-image:focus-within{
+    transform: scale(1.2);
 }
 
 .post-caption {
   padding: 10px;
 }
+.post-caption small i{
+    margin-right: 5px;
+}
+.post-caption small i:hover{
+    color: red;
+}
 
 .post-caption p {
   margin: 0;
-  padding: 5px 10px;
+  
 }
 
 .post-caption .line-clamp {
@@ -264,6 +274,11 @@ input:checked + .slider:before {
   outline: none;
   color: var(--foreground);
   border: none;
+  
+}
+.nav ul li input:focus{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 /* ------------------footer--------------- */
@@ -297,10 +312,19 @@ footer div ul a:hover {
     width: 90%;
     text-align: end;
 }
-.load-more button{
+ button{
     background-color: transparent;
     border: 1px solid var(--clr-dark);
     border-radius: 4px;
     padding: 3px 25px;
 
+}
+dialog{
+margin: auto auto;
+text-align: center;
+border: 1px solid var(--clr-dark);
+}
+dialog img {
+    max-height: 80vh;
+    margin-bottom: 10px;
 }
