@@ -1,11 +1,12 @@
 const darkModeToggle = document.querySelector(".switch input");
 const feedContainer = document.querySelector(".layout-container");
+const loadMoreButton = document.querySelector(".load-more")
 const darmModeSwitch = () => {
   document.body.classList.toggle("darkmode");
 };
 
 let postData;
-let loadedCards = 0;
+let loadedCards = 4;
 const cardsPerLoad = 4;
 fetch("./data.json")
   .then((response) => response.json())
@@ -42,4 +43,18 @@ fetch("./data.json")
       feedContainer.appendChild(postElement);
     };
   }
+
+  loadMoreButton.addEventListener('click', () => {
+    const remainingCards = postData.length - loadedCards;
+    if (remainingCards > 0) {
+        const cardsToLoad = Math.min(remainingCards, cardsPerLoad);
+        renderCards(loadedCards, loadedCards + cardsToLoad);
+        loadedCards += cardsToLoad;
+    }
+    if (loadedCards === postData.length) {
+        loadMoreButton.style.display = 'none';
+    }
+});
+
+
 darkModeToggle.addEventListener("click", darmModeSwitch);

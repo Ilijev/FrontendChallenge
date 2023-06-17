@@ -146,7 +146,7 @@ input:checked + .slider:before {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   /* height: 100%;  */
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
 
 @media (max-width: 1024px) {
@@ -289,4 +289,18 @@ footer div ul a {
 footer div ul a:hover {
   border-bottom: 1px solid var(--clr-dark);
   color: gray;
+}
+
+/* -------load More button------- */
+.load-more{
+    margin:10px auto;
+    width: 90%;
+    text-align: end;
+}
+.load-more button{
+    background-color: transparent;
+    border: 1px solid var(--clr-dark);
+    border-radius: 4px;
+    padding: 3px 25px;
+
 }
